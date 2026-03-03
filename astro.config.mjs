@@ -4,12 +4,15 @@ import tailwindcss from '@tailwindcss/vite'
 import react from '@astrojs/react'
 import vercel from '@astrojs/vercel'
 
+import sitemap from '@astrojs/sitemap';
+
 // https://astro.build/config
 export default defineConfig({
-	output: 'static',
-	vite: {
-		plugins: [tailwindcss()],
-	},
-	integrations: [react()],
-	adapter: vercel(),
+    site: 'https://nicohermida.vercel.app',
+    output: 'static',
+    vite: {
+        plugins: [tailwindcss()],
+    },
+    integrations: [react(), sitemap()],
+    adapter: vercel(),
 })

@@ -5,12 +5,16 @@ import CustomCursor from '../components/layout/CustomCursor.astro';
 interface Props {
   title?: string;
   description?: string;
+  ogImage?: string;
 }
 
 const {
   title = 'Nico Hermida — Fullstack Developer',
   description = 'Desarrollador fullstack especializado en arquitecturas web modernas. NestJS, Next.js, FastAPI, React Native.',
+  ogImage = '/og-image.png',
 } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!doctype html>
@@ -18,10 +22,33 @@ const {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary -->
+    <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="author" content="Nico Hermida" />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="/logo_N.png" />
-    <title>{title}</title>
+    <link rel="apple-touch-icon" href="/logo_N.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content="es_AR" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Theme color (mobile browser bar) -->
+    <meta name="theme-color" content="#060810" />
   </head>
   <body>
     <CustomCursor />
