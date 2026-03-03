@@ -15,31 +15,42 @@ export interface Project {
 
 export const projects: Project[] = [
 	{
-		name: 'Plataforma de Servicios para el Hogar',
+		name: 'Home Services Platform',
 		description:
-			'Plataforma profesional para conectar clientes con prestadores de servicios del hogar. Arquitectura multi-app: API REST con FastAPI, app mobile con React Native para clientes y prestadores, y backoffice en Next.js para gestión y administración.',
+			'Professional platform to connect clients with home service providers. Multi-app architecture: REST API with FastAPI, React Native mobile app for clients and providers, and a Next.js backoffice for management and administration.',
 		stack: ['FastAPI', 'PostgreSQL', 'React Native', 'Next.js', 'TypeScript'],
-		image: '/projects/servicios-hogar.png',
-		badge: { label: 'En desarrollo', type: 'wip' },
+		/* image: '/projects/servicios-hogar.png', */
+		badge: { label: 'In Progress', type: 'wip' },
 		featured: true,
+	},
+	{
+		name: 'Bit by Bit',
+		description:
+			'Bit by Bit is a web platform I created with the goal of helping people learn programming step by step. Through a collection of self-written articles, users can explore key programming concepts in a clear and approachable way, without needing prior experience.',
+		stack: ['Astro', 'TypeScript', 'TailwindCSS'],
+		image: '/projects/bit-by-bit.png',
+		badge: { label: 'Personal', type: 'personal' },
+		featured: true,
+		repoUrl: 'https://github.com/nicohermida01/bit-by-bit',
+		liveUrl: 'https://bit-by-bit-theta.vercel.app/',
 	},
 	{
 		name: 'AlquilAppCar',
 		description:
-			'Sistema de alquiler de vehículos con dos aplicaciones separadas: un backoffice para gestión y control operativo, y una web de cliente para reservas y administración de perfil. Proyecto universitario formal con requerimientos definidos y desarrollo en equipo.',
+			'Vehicle rental system with two separate applications: a backoffice for operational management and control, and a client web app for bookings and profile management. Formal university project with defined requirements and team development.',
 		stack: ['Next.js', 'TypeScript', 'TailwindCSS'],
-		image: '/projects/alquilappcar.png',
+		/* image: '/projects/alquilappcar.png', */
 		repoUrl: 'https://github.com/nicohermida01/alquilappcar',
-		badge: { label: 'Universidad', type: 'university' },
+		badge: { label: 'University', type: 'university' },
 		featured: true,
 	},
 	{
 		name: 'Sitios Históricos de Argentina',
 		description:
-			'Plataforma con dos aplicaciones: un backoffice para gestión de datos y usuarios, y un portal público para explorar y visualizar sitios históricos de Argentina. Desarrollado en equipo con metodología formal de la cátedra.',
+			"Platform with two applications: a backoffice for data and user management, and a public portal to explore and visualize historical sites across Argentina. Developed as a team following the course's formal methodology.",
 		stack: ['Next.js', 'TypeScript', 'TailwindCSS'],
-		image: '/projects/sitios-historicos.png',
-		badge: { label: 'Universidad', type: 'university' },
+		/* image: '/projects/sitios-historicos.png', */
+		badge: { label: 'University', type: 'university' },
 		featured: true,
 		repoPrivate: true,
 	},

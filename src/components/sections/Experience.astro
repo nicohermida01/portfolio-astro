@@ -4,39 +4,61 @@ import { experience } from '../../data/experience';
 
 <section id="experience" class="fade-up">
   <div class="section-tag">Experience</div>
-  <h2 class="section-title">Experiencia laboral</h2>
+  <h2 class="section-title">Work Experience</h2>
 
   <div class="exp-list">
     {experience.map((exp) => (
       <div class="exp-card">
         <div class="exp-accent"></div>
 
-        <div class="exp-header">
-          <div>
-            <div class="exp-role">{exp.role}</div>
-            <a href={exp.companyUrl} target="_blank" class="exp-company">
-              {exp.company} ↗
-            </a>
+        {exp.image && (
+          <div class="exp-image-wrap">
+            <img
+              src={exp.image}
+              alt={exp.company}
+              class="exp-image"
+              loading="lazy"
+            />
+            <div class="exp-image-overlay">
+              <span class="zoom-icon">⤢ View image</span>
+            </div>
           </div>
-          <div class="exp-date">{exp.dateStart} — {exp.dateEnd}</div>
-        </div>
+        )}
 
-        <p class="exp-description">{exp.description}</p>
+        <div class="exp-body">
+          <div class="exp-header">
+            <div>
+              <div class="exp-role">{exp.role}</div>
+              <a href={exp.companyUrl} target="_blank" class="exp-company">
+                {exp.company} ↗
+              </a>
+            </div>
+            <div class="exp-date">{exp.dateStart} — {exp.dateEnd}</div>
+          </div>
 
-        <div class="exp-achievement">
-          <strong>✦ Proyecto principal: </strong>
-          {exp.achievement}
-        </div>
+          <p class="exp-description">{exp.description}</p>
 
-        <div class="tech-tags">
-          {exp.stack.map((tech) => (
-            <span class="tech-tag">{tech}</span>
-          ))}
+          <div class="exp-achievement">
+            <strong>✦ Key achievement: </strong>
+            {exp.achievement}
+          </div>
+
+          <div class="tech-tags">
+            {exp.stack.map((tech) => (
+              <span class="tech-tag">{tech}</span>
+            ))}
+          </div>
         </div>
       </div>
     ))}
   </div>
 </section>
+
+<!-- Lightbox -->
+<div id="exp-lightbox" class="lightbox">
+  <button class="lightbox-close" id="exp-lightbox-close">✕</button>
+  <img id="exp-lightbox-img" src="" alt="" class="lightbox-image" />
+</div>
 
 <style>
   #experience {
@@ -66,10 +88,9 @@ import { experience } from '../../data/experience';
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 20px;
-    padding: 40px 44px;
+    overflow: hidden;
     backdrop-filter: blur(10px);
     position: relative;
-    overflow: hidden;
     transition: border-color 0.3s;
   }
 
@@ -85,6 +106,61 @@ import { experience } from '../../data/experience';
     height: 100%;
     background: linear-gradient(to bottom, var(--blue), var(--cyan));
     border-radius: 3px 0 0 3px;
+    z-index: 1;
+  }
+
+  /* Image */
+  .exp-image-wrap {
+    position: relative;
+    width: 100%;
+    height: 260px;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .exp-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    transition: transform 0.5s ease;
+    display: block;
+  }
+
+  .exp-image-wrap:hover .exp-image {
+    transform: scale(1.03);
+  }
+
+  .exp-image-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(6, 8, 16, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .exp-image-wrap:hover .exp-image-overlay {
+    opacity: 1;
+  }
+
+  .zoom-icon {
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    background: rgba(37, 99, 240, 0.7);
+    border: 1px solid rgba(37, 99, 240, 0.5);
+    padding: 10px 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(8px);
+    letter-spacing: 0.02em;
+  }
+
+  /* Body */
+  .exp-body {
+    padding: 36px 44px;
   }
 
   .exp-header {
@@ -150,6 +226,57 @@ import { experience } from '../../data/experience';
     font-weight: 600;
   }
 
+  /* Lightbox */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(6, 8, 16, 0.95);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    backdrop-filter: blur(12px);
+  }
+
+  .lightbox.open {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .lightbox-image {
+    max-width: 100%;
+    max-height: 90vh;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6);
+    object-fit: contain;
+  }
+
+  .lightbox-close {
+    position: absolute;
+    top: 24px;
+    right: 28px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-size: 16px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+  }
+
+  .lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.15);
+  }
+
   /* Responsive */
   @media (max-width: 768px) {
     #experience {
@@ -161,7 +288,11 @@ import { experience } from '../../data/experience';
       margin-bottom: 32px;
     }
 
-    .exp-card {
+    .exp-image-wrap {
+      height: 200px;
+    }
+
+    .exp-body {
       padding: 28px 24px 28px 28px;
     }
 
@@ -175,3 +306,36 @@ import { experience } from '../../data/experience';
     }
   }
 </style>
+
+<script>
+  const lightbox = document.getElementById('exp-lightbox');
+  const lightboxImg = document.getElementById('exp-lightbox-img') as HTMLImageElement;
+  const lightboxClose = document.getElementById('exp-lightbox-close');
+
+  document.querySelectorAll('.exp-image-wrap').forEach((wrap) => {
+    wrap.addEventListener('click', () => {
+      const img = wrap.querySelector('.exp-image') as HTMLImageElement;
+      if (img && lightboxImg && lightbox) {
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightbox.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  });
+
+  lightboxClose?.addEventListener('click', closeLightbox);
+
+  lightbox?.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+
+  function closeLightbox() {
+    lightbox?.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+</script>

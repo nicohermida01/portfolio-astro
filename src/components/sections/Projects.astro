@@ -4,7 +4,7 @@ import { projects } from '../../data/projects';
 
 <section id="projects" class="fade-up">
   <div class="section-tag">Projects</div>
-  <h2 class="section-title">Proyectos</h2>
+  <h2 class="section-title">Projects</h2>
 
   <div class="projects-list">
     {projects.map((project, i) => (
@@ -19,7 +19,7 @@ import { projects } from '../../data/projects';
               loading="lazy"
             />
             <div class="project-image-overlay">
-              <span class="zoom-icon">⤢ Ver imagen</span>
+              <span class="zoom-icon">⤢ View image</span>
             </div>
           </div>
         )}
@@ -56,7 +56,7 @@ import { projects } from '../../data/projects';
               )}
               {!project.repoUrl && !project.liveUrl && (
                 <span class="project-link disabled">
-                  {project.repoPrivate ? 'Repo privado' : 'Próximamente'}
+                  {project.repoPrivate ? 'Private repo' : 'Coming soon'}
                 </span>
               )}
             </div>

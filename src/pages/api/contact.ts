@@ -12,14 +12,14 @@ export const POST: APIRoute = async ({ request }) => {
 
 		if (!name || !email || !message) {
 			return new Response(
-				JSON.stringify({ error: 'Todos los campos son requeridos.' }),
+				JSON.stringify({ error: 'All fields are required.' }),
 				{ status: 400, headers: { 'Content-Type': 'application/json' } },
 			)
 		}
 
 		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 		if (!emailRegex.test(email)) {
-			return new Response(JSON.stringify({ error: 'El email no es válido.' }), {
+			return new Response(JSON.stringify({ error: 'Invalid email address.' }), {
 				status: 400,
 				headers: { 'Content-Type': 'application/json' },
 			})
@@ -28,13 +28,13 @@ export const POST: APIRoute = async ({ request }) => {
 		const { error } = await resend.emails.send({
 			from: 'Portfolio <onboarding@resend.dev>',
 			to: import.meta.env.CONTACT_EMAIL,
-			subject: `Nuevo mensaje de ${name} — Portfolio`,
+			subject: `New message from ${name} — Portfolio`,
 			html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #2563f0;">Nuevo mensaje desde tu portfolio</h2>
+          <h2 style="color: #2563f0;">New message from your portfolio</h2>
           <table style="width: 100%; border-collapse: collapse;">
             <tr>
-              <td style="padding: 8px 0; color: #666; width: 80px;"><strong>Nombre</strong></td>
+              <td style="padding: 8px 0; color: #666; width: 80px;"><strong>Name</strong></td>
               <td style="padding: 8px 0;">${name}</td>
             </tr>
             <tr>
@@ -42,7 +42,7 @@ export const POST: APIRoute = async ({ request }) => {
               <td style="padding: 8px 0;"><a href="mailto:${email}">${email}</a></td>
             </tr>
             <tr>
-              <td style="padding: 8px 0; color: #666; vertical-align: top;"><strong>Mensaje</strong></td>
+              <td style="padding: 8px 0; color: #666; vertical-align: top;"><strong>Message</strong></td>
               <td style="padding: 8px 0;">${message.replace(/\n/g, '<br>')}</td>
             </tr>
           </table>
@@ -53,7 +53,7 @@ export const POST: APIRoute = async ({ request }) => {
 		if (error) {
 			return new Response(
 				JSON.stringify({
-					error: 'Error al enviar el mensaje. Intentá de nuevo.',
+					error: 'Failed to send the message. Please try again.',
 				}),
 				{ status: 500, headers: { 'Content-Type': 'application/json' } },
 			)
@@ -65,7 +65,7 @@ export const POST: APIRoute = async ({ request }) => {
 		})
 	} catch {
 		return new Response(
-			JSON.stringify({ error: 'Error inesperado. Intentá de nuevo.' }),
+			JSON.stringify({ error: 'Unexpected error. Please try again.' }),
 			{ status: 500, headers: { 'Content-Type': 'application/json' } },
 		)
 	}

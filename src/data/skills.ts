@@ -6,19 +6,26 @@ export interface SkillGroup {
 export const skills: SkillGroup[] = [
 	{
 		category: 'Frontend',
-		items: ['Next.js', 'React', 'TypeScript', 'TailwindCSS', 'HTML / CSS'],
+		items: [
+			'Next.js',
+			'React',
+			'Astro',
+			'TypeScript',
+			'TailwindCSS',
+			'HTML / CSS',
+		],
 	},
 	{
 		category: 'Backend',
-		items: ['NestJS', 'FastAPI', 'Flask', 'Node.js', 'Python'],
+		items: ['NestJS', 'FastAPI', 'Flask', 'Django', 'Node.js', 'Python'],
 	},
 	{
-		category: 'Bases de datos',
-		items: ['PostgreSQL', 'MongoDB'],
+		category: 'Databases',
+		items: ['PostgreSQL', 'MongoDB', 'MySQL'],
 	},
 	{
-		category: 'Infraestructura & Tools',
-		items: ['Docker', 'AWS S3', 'GitHub Actions', 'Git', 'RabbitMQ'],
+		category: 'Infrastructure & Tools',
+		items: ['Docker', 'AWS S3', 'GitHub Actions', 'Git', 'RabbitMQ', 'Redis'],
 	},
 	{
 		category: 'Mobile',

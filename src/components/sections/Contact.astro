@@ -1,19 +1,20 @@
 ---
+import { GITHUB_URL, LINKEDIN_URL } from '../../constants/urls';
+
 ---
 
 <section id="contact" class="fade-up">
   <div class="contact-inner">
     <div class="contact-left">
       <div class="section-tag">Contact</div>
-      <h2 class="contact-title">¿Hablamos?</h2>
+      <h2 class="contact-title">Let's talk.</h2>
       <p class="contact-desc">
-        Estoy abierto a oportunidades laborales, proyectos freelance o
-        simplemente para conectar con otros developers.
+        I'm open to job opportunities, freelance projects, or simply connecting with other developers.
       </p>
 
       <div class="contact-links">
-        
-          href="https://github.com/nicohermida01"
+        <a
+          href={GITHUB_URL}
           target="_blank"
           class="contact-link"
         >
@@ -25,8 +26,8 @@
           github.com/nicohermida01
         </a>
 
-        
-          href="https://linkedin.com/in/nicohermida"
+        <a
+          href={LINKEDIN_URL}
           target="_blank"
           class="contact-link"
         >
@@ -35,7 +36,7 @@
               <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
             </svg>
           </div>
-          linkedin.com/in/nicohermida
+          linkedin.com/in/nico-hermida
         </a>
       </div>
     </div>
@@ -46,7 +47,7 @@
           id="form-name"
           class="form-input"
           type="text"
-          placeholder="Nombre"
+          placeholder="Name"
           autocomplete="off"
         />
         <input
@@ -59,10 +60,10 @@
         <textarea
           id="form-message"
           class="form-textarea"
-          placeholder="Mensaje..."
+          placeholder="Message..."
         ></textarea>
         <button id="form-submit" class="form-submit">
-          Enviar mensaje →
+          Send message →
         </button>
         <div id="form-feedback" class="form-feedback"></div>
       </div>
@@ -277,12 +278,12 @@
 
     // Validación client-side
     if (!name || !email || !message) {
-      showFeedback('Completá todos los campos.', 'error');
+      showFeedback('Please fill in all fields.', 'error');
       return;
     }
 
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Enviando...';
+    submitBtn.textContent = 'Sending...';
     feedback.className = 'form-feedback';
     feedback.textContent = '';
 
@@ -296,18 +297,18 @@
       const data = await res.json();
 
       if (res.ok) {
-        showFeedback('✓ Mensaje enviado. Te respondo pronto.', 'success');
+        showFeedback("✓ Message sent. I'll get back to you soon.", 'success');
         nameInput.value = '';
         emailInput.value = '';
         messageInput.value = '';
       } else {
-        showFeedback(data.error || 'Error al enviar. Intentá de nuevo.', 'error');
+        showFeedback(data.error || 'Failed to send. Please try again.', 'error');
       }
     } catch {
-      showFeedback('Error de conexión. Intentá de nuevo.', 'error');
+      showFeedback('Connection error. Please try again.', 'error');
     } finally {
       submitBtn.disabled = false;
-      submitBtn.textContent = 'Enviar mensaje →';
+      submitBtn.textContent = 'Send message →';
     }
   });
 
