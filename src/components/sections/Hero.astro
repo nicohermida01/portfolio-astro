@@ -1,0 +1,271 @@
+---
+---
+
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        Available for new opportunities
+      </div>
+
+      <h1 class="hero-name">Nico Hermida</h1>
+      <h1 class="hero-role">Fullstack Dev.</h1>
+
+      <p class="hero-desc">
+        Construyo productos web completos, desde la API hasta la interfaz.
+        Estudiante de Sistemas, 1 año de experiencia profesional y 6 años
+        desarrollando proyectos reales.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#projects" class="btn-primary">Ver proyectos →</a>
+        <a href="/CV_Nicolas_Hermida.pdf" target="_blank" class="btn-secondary">↓ Download CV</a>
+      </div>
+    </div>
+
+    <div class="hero-logo-container">
+      <div class="hero-logo-glow"></div>
+      <img src="/logo_N.png" alt="Nico Hermida" class="hero-logo" />
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <span>scroll</span>
+  </div>
+</section>
+
+<style>
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 100px 60px 0;
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 80px;
+    align-items: center;
+    width: 100%;
+  }
+
+  /* Badge */
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(62, 255, 192, 0.07);
+    border: 1px solid rgba(62, 255, 192, 0.2);
+    border-radius: 100px;
+    padding: 6px 14px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--cyan);
+    margin-bottom: 28px;
+    width: fit-content;
+  }
+
+  .hero-badge-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--cyan);
+    border-radius: 50%;
+    animation: blink 2s infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.2; }
+  }
+
+  /* Títulos */
+  .hero-name {
+    font-size: 72px;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 0.95;
+    background: linear-gradient(135deg, #fff 30%, rgba(255, 255, 255, 0.6) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 6px;
+  }
+
+  .hero-role {
+    font-size: 72px;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 0.95;
+    background: linear-gradient(135deg, var(--blue) 0%, var(--cyan) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 28px;
+  }
+
+  /* Descripción */
+  .hero-desc {
+    font-size: 16px;
+    color: var(--muted);
+    line-height: 1.7;
+    max-width: 480px;
+    margin-bottom: 40px;
+    font-weight: 400;
+  }
+
+  /* CTAs */
+  .hero-actions {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, var(--blue), #1e4fd8);
+    color: #fff;
+    padding: 12px 26px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: opacity 0.2s, transform 0.2s;
+    box-shadow: 0 4px 24px rgba(37, 99, 240, 0.35);
+  }
+
+  .btn-primary:hover {
+    opacity: 0.88;
+    transform: translateY(-1px);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: var(--text);
+    padding: 12px 26px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1px solid var(--border);
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .btn-secondary:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  /* Logo */
+  .hero-logo-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-logo-glow {
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    background: radial-gradient(
+      circle,
+      rgba(37, 99, 240, 0.3) 0%,
+      rgba(62, 255, 192, 0.15) 50%,
+      transparent 70%
+    );
+    border-radius: 50%;
+    filter: blur(30px);
+    animation: logo-pulse 4s ease-in-out infinite;
+  }
+
+  .hero-logo {
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+    position: relative;
+    z-index: 1;
+    filter: drop-shadow(0 0 40px rgba(37, 99, 240, 0.5));
+  }
+
+  @keyframes logo-pulse {
+    0%, 100% { opacity: 0.7; transform: scale(1); }
+    50%       { opacity: 1;   transform: scale(1.08); }
+  }
+
+  /* Scroll indicator */
+  .hero-scroll {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--muted);
+    font-size: 11px;
+    font-family: var(--mono);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    animation: float 2.5s ease-in-out infinite;
+  }
+
+  .hero-scroll::after {
+    content: '';
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--muted), transparent);
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50%       { transform: translateX(-50%) translateY(6px); }
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    #hero {
+      padding: 100px 24px 0;
+    }
+
+    .hero-inner {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .hero-name,
+    .hero-role {
+      font-size: 48px;
+    }
+
+    .hero-logo-container {
+      display: none;
+    }
+
+    .hero-scroll {
+      display: none;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-name,
+    .hero-role {
+      font-size: 38px;
+    }
+
+    .hero-desc {
+      font-size: 14px;
+    }
+  }
+</style>
