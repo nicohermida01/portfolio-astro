@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import CustomCursor from '../components/layout/CustomCursor.astro';
 
 interface Props {
   title?: string;
@@ -23,6 +24,7 @@ const {
     <title>{title}</title>
   </head>
   <body>
+    <CustomCursor />
     <slot />
   </body>
 </html>

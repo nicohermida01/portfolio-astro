@@ -1,0 +1,65 @@
+<div id="blob"></div>
+<div id="cursor-dot"></div>
+
+<style>
+  #blob {
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(
+      circle at center,
+      rgba(37, 99, 240, 0.18) 0%,
+      rgba(62, 255, 192, 0.10) 45%,
+      transparent 70%
+    );
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    filter: blur(12px);
+    z-index: 0;
+    mix-blend-mode: screen;
+    left: -9999px;
+    top: -9999px;
+  }
+
+  #cursor-dot {
+    position: fixed;
+    width: 7px;
+    height: 7px;
+    background: var(--cyan);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    transition: transform 0.15s, opacity 0.2s;
+    left: -9999px;
+    top: -9999px;
+  }
+</style>
+
+<script>
+  const blob = document.getElementById('blob');
+  const dot = document.getElementById('cursor-dot');
+
+  let mx = -9999, my = -9999;
+  let bx = mx, by = my;
+
+  document.addEventListener('mousemove', (e) => {
+    mx = e.clientX;
+    my = e.clientY;
+    dot!.style.left = mx + 'px';
+    dot!.style.top = my + 'px';
+  });
+
+  function lerp(a: number, b: number, t: number) {
+    return a + (b - a) * t;
+  }
+
+  (function tick() {
+    bx = lerp(bx, mx, 0.055);
+    by = lerp(by, my, 0.055);
+    blob!.style.left = bx + 'px';
+    blob!.style.top = by + 'px';
+    requestAnimationFrame(tick);
+  })();
+</script>
