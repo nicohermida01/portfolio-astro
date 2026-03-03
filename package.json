@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@astrojs/react": "^4.4.2",
+    "@astrojs/vercel": "^9.0.4",
     "@fontsource/jetbrains-mono": "^5.2.8",
     "@fontsource/sora": "^5.2.8",
     "@tailwindcss/vite": "^4.2.1",
@@ -18,6 +19,7 @@
     "astro": "^5.17.1",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
+    "resend": "^6.9.3",
     "tailwindcss": "^4.2.1"
   }
 }

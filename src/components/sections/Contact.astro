@@ -1,0 +1,318 @@
+---
+---
+
+<section id="contact" class="fade-up">
+  <div class="contact-inner">
+    <div class="contact-left">
+      <div class="section-tag">Contact</div>
+      <h2 class="contact-title">¿Hablamos?</h2>
+      <p class="contact-desc">
+        Estoy abierto a oportunidades laborales, proyectos freelance o
+        simplemente para conectar con otros developers.
+      </p>
+
+      <div class="contact-links">
+        
+          href="https://github.com/nicohermida01"
+          target="_blank"
+          class="contact-link"
+        >
+          <div class="contact-link-icon">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+            </svg>
+          </div>
+          github.com/nicohermida01
+        </a>
+
+        
+          href="https://linkedin.com/in/nicohermida"
+          target="_blank"
+          class="contact-link"
+        >
+          <div class="contact-link-icon">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+            </svg>
+          </div>
+          linkedin.com/in/nicohermida
+        </a>
+      </div>
+    </div>
+
+    <div class="contact-right">
+      <div class="form-group">
+        <input
+          id="form-name"
+          class="form-input"
+          type="text"
+          placeholder="Nombre"
+          autocomplete="off"
+        />
+        <input
+          id="form-email"
+          class="form-input"
+          type="email"
+          placeholder="Email"
+          autocomplete="off"
+        />
+        <textarea
+          id="form-message"
+          class="form-textarea"
+          placeholder="Mensaje..."
+        ></textarea>
+        <button id="form-submit" class="form-submit">
+          Enviar mensaje →
+        </button>
+        <div id="form-feedback" class="form-feedback"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  #contact {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 120px 60px 160px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .contact-inner {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 60px;
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .contact-inner::before {
+    content: '';
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(
+      circle,
+      rgba(37, 99, 240, 0.12),
+      transparent 70%
+    );
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  /* Left */
+  .contact-title {
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    margin-bottom: 14px;
+    color: var(--text);
+  }
+
+  .contact-desc {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 32px;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    transition: color 0.2s;
+  }
+
+  .contact-link:last-child {
+    border-bottom: none;
+  }
+
+  .contact-link:hover {
+    color: var(--text);
+  }
+
+  .contact-link-icon {
+    width: 36px;
+    height: 36px;
+    background: rgba(37, 99, 240, 0.1);
+    border: 1px solid rgba(37, 99, 240, 0.2);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.2s;
+  }
+
+  .contact-link:hover .contact-link-icon {
+    background: rgba(37, 99, 240, 0.2);
+  }
+
+  /* Form */
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .form-input,
+  .form-textarea {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 13px 16px;
+    font-family: var(--font);
+    font-size: 14px;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s;
+    resize: none;
+  }
+
+  .form-input::placeholder,
+  .form-textarea::placeholder {
+    color: rgba(255, 255, 255, 0.25);
+  }
+
+  .form-input:focus,
+  .form-textarea:focus {
+    border-color: rgba(37, 99, 240, 0.5);
+  }
+
+  .form-textarea {
+    height: 130px;
+  }
+
+  .form-submit {
+    background: linear-gradient(135deg, var(--blue), #1e4fd8);
+    color: #fff;
+    border: none;
+    padding: 13px 28px;
+    border-radius: 10px;
+    font-family: var(--font);
+    font-size: 14px;
+    font-weight: 600;
+    width: 100%;
+    box-shadow: 0 4px 24px rgba(37, 99, 240, 0.3);
+    transition: opacity 0.2s, transform 0.2s;
+  }
+
+  .form-submit:hover:not(:disabled) {
+    opacity: 0.88;
+    transform: translateY(-1px);
+  }
+
+  .form-submit:disabled {
+    opacity: 0.5;
+  }
+
+  /* Feedback */
+  .form-feedback {
+    font-size: 13px;
+    text-align: center;
+    min-height: 20px;
+    transition: opacity 0.3s;
+  }
+
+  .form-feedback.success {
+    color: var(--cyan);
+  }
+
+  .form-feedback.error {
+    color: #f87171;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    #contact {
+      padding: 80px 24px 120px;
+    }
+
+    .contact-inner {
+      grid-template-columns: 1fr;
+      padding: 36px 28px;
+      gap: 40px;
+    }
+
+    .contact-title {
+      font-size: 28px;
+    }
+  }
+</style>
+
+<script>
+  const nameInput = document.getElementById('form-name') as HTMLInputElement;
+  const emailInput = document.getElementById('form-email') as HTMLInputElement;
+  const messageInput = document.getElementById('form-message') as HTMLTextAreaElement;
+  const submitBtn = document.getElementById('form-submit') as HTMLButtonElement;
+  const feedback = document.getElementById('form-feedback') as HTMLDivElement;
+
+  submitBtn?.addEventListener('click', async () => {
+    const name = nameInput.value.trim();
+    const email = emailInput.value.trim();
+    const message = messageInput.value.trim();
+
+    // Validación client-side
+    if (!name || !email || !message) {
+      showFeedback('Completá todos los campos.', 'error');
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Enviando...';
+    feedback.className = 'form-feedback';
+    feedback.textContent = '';
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, message }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        showFeedback('✓ Mensaje enviado. Te respondo pronto.', 'success');
+        nameInput.value = '';
+        emailInput.value = '';
+        messageInput.value = '';
+      } else {
+        showFeedback(data.error || 'Error al enviar. Intentá de nuevo.', 'error');
+      }
+    } catch {
+      showFeedback('Error de conexión. Intentá de nuevo.', 'error');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Enviar mensaje →';
+    }
+  });
+
+  function showFeedback(msg: string, type: 'success' | 'error') {
+    feedback.textContent = msg;
+    feedback.className = `form-feedback ${type}`;
+  }
+</script>
