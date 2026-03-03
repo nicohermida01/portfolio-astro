@@ -1,0 +1,140 @@
+---
+---
+
+<section id="about" class="fade-up">
+  <div class="section-tag">About</div>
+
+  <div class="about-grid">
+    <div class="about-text">
+      <p>
+        Soy <strong>Nico Hermida</strong>, desarrollador fullstack de Argentina.
+        Empecé a programar por cuenta propia hace 6 años, mucho antes de entrar
+        a la universidad — lo que me dio una ventaja práctica que la carrera
+        terminó de formalizar.
+      </p>
+      <p>
+        Cursando el 4to año de <strong>Licenciatura en Sistemas</strong> y con
+        <strong>1 año de experiencia laboral</strong> real en startup, tengo un
+        perfil que mezcla solidez técnica con capacidad de construir productos
+        desde cero.
+      </p>
+      <p>
+        Me especializo en el stack
+        <span class="about-highlight">Node / NestJS + Next.js</span>, y
+        actualmente estoy profundizando en backend Python con FastAPI y
+        desarrollo mobile con React Native.
+      </p>
+    </div>
+
+    <div class="about-stats">
+      <div class="stat-card">
+        <div class="stat-number">6+</div>
+        <div class="stat-label">años desarrollando proyectos web</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">1</div>
+        <div class="stat-label">año de experiencia profesional</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">4to</div>
+        <div class="stat-label">año, Licenciatura en Sistemas</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  #about {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 120px 60px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  /* Texto */
+  .about-text p {
+    font-size: 16px;
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: 18px;
+  }
+
+  .about-text p:last-child {
+    margin-bottom: 0;
+  }
+
+  .about-text strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .about-highlight {
+    background: linear-gradient(135deg, var(--blue), var(--cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 600;
+  }
+
+  /* Stats */
+  .about-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px 24px;
+    backdrop-filter: blur(10px);
+    transition: border-color 0.2s;
+  }
+
+  .stat-card:hover {
+    border-color: rgba(37, 99, 240, 0.3);
+  }
+
+  .stat-number {
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    background: linear-gradient(135deg, var(--blue), var(--cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .stat-label {
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 400;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    #about {
+      padding: 80px 24px;
+    }
+
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .about-text p {
+      font-size: 15px;
+    }
+  }
+</style>
