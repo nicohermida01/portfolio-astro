@@ -1,0 +1,177 @@
+---
+import { experience } from '../../data/experience';
+---
+
+<section id="experience" class="fade-up">
+  <div class="section-tag">Experience</div>
+  <h2 class="section-title">Experiencia laboral</h2>
+
+  <div class="exp-list">
+    {experience.map((exp) => (
+      <div class="exp-card">
+        <div class="exp-accent"></div>
+
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">{exp.role}</div>
+            <a href={exp.companyUrl} target="_blank" class="exp-company">
+              {exp.company} ↗
+            </a>
+          </div>
+          <div class="exp-date">{exp.dateStart} — {exp.dateEnd}</div>
+        </div>
+
+        <p class="exp-description">{exp.description}</p>
+
+        <div class="exp-achievement">
+          <strong>✦ Proyecto principal: </strong>
+          {exp.achievement}
+        </div>
+
+        <div class="tech-tags">
+          {exp.stack.map((tech) => (
+            <span class="tech-tag">{tech}</span>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  #experience {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 120px 60px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .section-title {
+    font-size: 42px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 48px;
+    color: var(--text);
+  }
+
+  .exp-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .exp-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 40px 44px;
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s;
+  }
+
+  .exp-card:hover {
+    border-color: rgba(37, 99, 240, 0.3);
+  }
+
+  .exp-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--blue), var(--cyan));
+    border-radius: 3px 0 0 3px;
+  }
+
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .exp-role {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .exp-company {
+    font-size: 15px;
+    color: var(--cyan);
+    font-weight: 500;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .exp-company:hover {
+    opacity: 0.75;
+  }
+
+  .exp-date {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border);
+    padding: 6px 14px;
+    border-radius: 100px;
+    white-space: nowrap;
+  }
+
+  .exp-description {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+
+  .exp-achievement {
+    background: rgba(62, 255, 192, 0.05);
+    border: 1px solid rgba(62, 255, 192, 0.15);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+    font-size: 14px;
+    color: rgba(62, 255, 192, 0.85);
+    line-height: 1.6;
+  }
+
+  .exp-achievement strong {
+    color: var(--cyan);
+    font-weight: 600;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    #experience {
+      padding: 80px 24px;
+    }
+
+    .section-title {
+      font-size: 32px;
+      margin-bottom: 32px;
+    }
+
+    .exp-card {
+      padding: 28px 24px 28px 28px;
+    }
+
+    .exp-role {
+      font-size: 18px;
+    }
+
+    .exp-header {
+      flex-direction: column;
+      gap: 8px;
+    }
+  }
+</style>
