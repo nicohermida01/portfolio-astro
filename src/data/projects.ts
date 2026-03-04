@@ -39,7 +39,7 @@ export const projects: Project[] = [
 		description:
 			'Vehicle rental system with two separate applications: a backoffice for operational management and control, and a client web app for bookings and profile management. Formal university project with defined requirements and team development.',
 		stack: ['Next.js', 'TypeScript', 'TailwindCSS'],
-		/* image: '/projects/alquilappcar.png', */
+		image: '/projects/alquilappcar.png',
 		repoUrl: 'https://github.com/nicohermida01/alquilappcar',
 		badge: { label: 'University', type: 'university' },
 		featured: true,
@@ -49,7 +49,7 @@ export const projects: Project[] = [
 		description:
 			"Platform with two applications: a backoffice for data and user management, and a public portal to explore and visualize historical sites across Argentina. Developed as a team following the course's formal methodology.",
 		stack: ['Next.js', 'TypeScript', 'TailwindCSS'],
-		/* image: '/projects/sitios-historicos.png', */
+		image: '/projects/sitios-historicos.png',
 		badge: { label: 'University', type: 'university' },
 		featured: true,
 		repoPrivate: true,
