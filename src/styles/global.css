@@ -17,7 +17,7 @@
 	--surface: rgba(255, 255, 255, 0.04);
 	--border: rgba(255, 255, 255, 0.07);
 	--text: #e8eaf2;
-	--muted: rgba(232, 234, 242, 0.45);
+	--muted: rgba(232, 234, 242, 0.6);
 	--font: 'Sora', sans-serif;
 	--mono: 'JetBrains Mono', monospace;
 }
@@ -74,7 +74,7 @@ body::before {
 	align-items: center;
 	gap: 8px;
 	font-family: var(--mono);
-	font-size: 11px;
+	font-size: 12px;
 	color: var(--cyan);
 	letter-spacing: 0.15em;
 	text-transform: uppercase;
@@ -108,7 +108,7 @@ body::before {
 
 .tech-tag {
 	font-family: var(--mono);
-	font-size: 11px;
+	font-size: 12px;
 	background: rgba(37, 99, 240, 0.1);
 	border: 1px solid rgba(37, 99, 240, 0.25);
 	color: rgba(37, 99, 240, 0.9);
